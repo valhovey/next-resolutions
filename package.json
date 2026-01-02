@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "fix": "next lint --fix",
+    "export": "next export",
     "prepare": "husky install"
   },
   "dependencies": {

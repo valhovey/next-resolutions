@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import years, { isCompleted } from "../lib/resolutions";
 
 export default function Home() {
-  const [resolutionsIndex, setResolutionsIndex] = useState(1);
+  const [resolutionsIndex, setResolutionsIndex] = useState(0);
   const { resolutions, year } = years[resolutionsIndex];
   const maxIndex = years.length - 1;
 
@@ -19,35 +19,37 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{year} Resolutions</title>
+        <title>Val&apos;s {year} Resolutions</title>
         <meta
           name="description"
-          content={`Kyle Hovey's ${year} New Years Resolutions`}
+          content={`Val Hovey's ${year} New Years Resolutions`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <div className={styles.container}>
-          <h1>{year} Resolutions</h1>
-          <div className={styles.navigation}>
-            <button
-              disabled={resolutionsIndex === 0}
-              type="button"
-              aria-label="See previous year's resolutions."
-              onClick={() => applyDiff(-1)}
-            >
-              ← Previous
-            </button>
-            <button
-              disabled={resolutionsIndex === maxIndex}
-              type="button"
-              aria-label="See next year's resolutions."
-              onClick={() => applyDiff(1)}
-            >
-              Next →
-            </button>
-          </div>
+          <h1>Val&apos;s {year} Resolutions</h1>
+          {years.length > 1 && (
+            <div className={styles.navigation}>
+              <button
+                disabled={resolutionsIndex === 0}
+                type="button"
+                aria-label="See previous year's resolutions."
+                onClick={() => applyDiff(-1)}
+              >
+                ← Previous
+              </button>
+              <button
+                disabled={resolutionsIndex === maxIndex}
+                type="button"
+                aria-label="See next year's resolutions."
+                onClick={() => applyDiff(1)}
+              >
+                Next →
+              </button>
+            </div>
+          )}
           <hr />
           <div className={styles.resolutions}>
             {resolutions.map((resolution) => (

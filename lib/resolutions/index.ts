@@ -1,8 +1,7 @@
 import type { Resolution, Resolutions } from "./types";
-import twentyThree from "./2023";
-import twentyFour from "./2024";
+import twentySix from "./2026";
 
-const years: Resolutions[] = [twentyThree, twentyFour];
+const years: Resolutions[] = [twentySix];
 
 export const isCompleted = (resolution: Resolution): boolean =>
   resolution?.success
